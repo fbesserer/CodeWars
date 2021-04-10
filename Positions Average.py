@@ -34,8 +34,8 @@ def pos_average1(s):
     return mean(a == b for combo in combinations(s.split(', '), 2) for a, b in zip(*combo)) * 100.
 
 
-# assert_fuzzy = ("466960, 069060, 494940, 060069, 060090, 640009, 496464, 606900, 004000, 944096")
-assert_fuzzy = ("466960, " * 1000)[:-2]
+assert_fuzzy = ("466960, 069060, 494940, 060069, 060090, 640009, 496464, 606900, 004000, 944096")
+#assert_fuzzy = ("466960, " * 1000)[:-2]
 time1 = time.perf_counter()
 print(pos_average(assert_fuzzy))
 time2 = time.perf_counter()
