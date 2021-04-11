@@ -27,10 +27,23 @@ std::vector<std::string> splitString(const std::string &s)
     return splitStrings;
 }
 
+std::vector<std::string> shorterSplitString(const std::string &s)
+{ // optimized version if all substrings are known to have the same length
+    std::vector<std::string> vec;
+    int delimiter = s.find(',');
+    for (int i = 0; i < s.size(); i += delimiter + 2)
+    {/*delimiter searches only once from the beginning of the string since all substrings are supposed to be the same size and returns the length of the entry.
+       after the last substring i will be greater than s.size() since current i size + delimiter size + 2 > s.size()*/
+        vec.push_back(s.substr(i,delimiter)); // substr(start, length)
+    }
+    return vec;
+
+}
+
 
 double posAverage(const std::string &s)
 {
-	auto splits = splitString(s);
+	auto splits = shorterSplitString(s);
     int duplicates = 0;
     std::unordered_map<int, int> hashtable;
     int n = splits.size();
@@ -42,7 +55,6 @@ double posAverage(const std::string &s)
         }
         for (auto values : hashtable)
         {
-            //std::cout << values.first << " " << values.second << " " << i << "\n";
             duplicates += (values.second * (values.second -1) / 2);
         }
         hashtable.clear();
