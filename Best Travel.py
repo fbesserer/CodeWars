@@ -43,34 +43,58 @@ xs = [100, 76, 56, 44, 89, 73, 68, 56, 64, 123, 2333, 144, 50, 132, 123, 34, 89]
 # print(choose_best_sum(430, 5, xs))
 # print(choose_best_sum(430, 8, xs))  # TC 3 --> None
 
+from statistics import mean
 # TC 1
-time1 = time.perf_counter()
-choose_best_sum(230, 4, xs)
-time2 = time.perf_counter()
-print(f"time: {time2 - time1}")
+times = list()
+for _ in range(10000):
+    time1 = time.perf_counter()
+    choose_best_sum(230, 4, xs)
+    time2 = time.perf_counter()
+    times.append(time2 - time1)
+print(mean(times))
 
-time1 = time.perf_counter()
-choose_best_sum1(230, 4, xs)
-time2 = time.perf_counter()
-print(f"time: {time2 - time1}")
+times = list()
+for _ in range(10000):
+    time1 = time.perf_counter()
+    choose_best_sum1(230, 4, xs)
+    time2 = time.perf_counter()
+    times.append(time2 - time1)
+# print(f"time: {time2 - time1}")
+print(mean(times))
 
-time1 = time.perf_counter()
-choose_best_sum2(230, 4, xs)
-time2 = time.perf_counter()
-print(f"time: {time2 - time1}")
+times = list()
+for _ in range(10000):
+    time1 = time.perf_counter()
+    choose_best_sum2(230, 4, xs)
+    time2 = time.perf_counter()
+    times.append(time2 - time1)
+print(mean(times))
+# print(f"time: {time2 - time1}")
 
 # TC 3
-time1 = time.perf_counter()
-choose_best_sum(430, 8, xs)
-time2 = time.perf_counter()
-print(f"time: {time2 - time1}")
+times = list()
+for _ in range(100):
+    time1 = time.perf_counter()
+    choose_best_sum(430, 8, xs)
+    time2 = time.perf_counter()
+    times.append(time2 - time1)
+print(mean(times))
+# print(f"time: {time2 - time1}")
 
-time1 = time.perf_counter()
-choose_best_sum1(430, 8, xs)
-time2 = time.perf_counter()
-print(f"time: {time2 - time1}")
+times = list()
+for _ in range(100):
+    time1 = time.perf_counter()
+    choose_best_sum1(430, 8, xs)
+    time2 = time.perf_counter()
+    times.append(time2 - time1)
+print(mean(times))
+# print(f"time: {time2 - time1}")
 
-time1 = time.perf_counter()
-choose_best_sum2(430, 8, xs)
-time2 = time.perf_counter()
-print(f"time: {time2 - time1}")
+times = list()
+for _ in range(100):
+    time1 = time.perf_counter()
+    choose_best_sum2(430, 8, xs)
+    time2 = time.perf_counter()
+    times.append(time2 - time1)
+print(mean(times))
+# print(f"time: {time2 - time1}")
