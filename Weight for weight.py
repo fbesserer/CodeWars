@@ -56,7 +56,7 @@ order_weight2(i)
 time2 = time.perf_counter()
 print(f"time: {time2 - time1}")
 
-# 3. Variante die schnellste, die lambda funktion inkl sum() scheint zeit zu kosten 
+# 3. Variante die schnellste, die lambda funktion inkl sum() scheint zeit zu kosten
 # time: 1.9878708
 # time: 1.6468062000000003
 # time: 1.2961744000000004
